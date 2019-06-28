@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>组件</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+
+    <ol id="app">
+        <todo-item
+            v-for="item in list"
+            v-bind:todo="item"
+            v-bind:key='item.id'
+        ></todo-item>
+    </ol>
+
+
+    <script>
+
+        Vue.component('todo-item',{
+            props:['todo'],
+            template:'<li>{{todo.text}}</li>'
+        })
+
+        var app = new Vue({
+            el:'#app',
+            data:{
+                list:[
+                    {text:'哈哈',id:1},
+                    {text:'呵呵',id:2},
+                    {text:'嘿嘿',id:3},
+                    {text:'吼吼',id:4},
+                ]
+            }
+        })
+
+    </script>
+
+
+    
+</body>
+</html>
